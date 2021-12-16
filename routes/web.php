@@ -14,9 +14,15 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
+    $title = 'Tutorial Pizza';
+    $text = 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis sit dolorum, minus saepe impedit libero consectetur iure ea adipisci incidunt iusto molestias quisquam voluptatum, repudiandae alias aliquam nostrum corporis animi?';
+    return view('home', compact('title', 'text'));
+})->name('home');
+
+Route::get('/ingredients', function () {
     $title = 'Ingredienti per la Pizza';
     $ingredients = [
-        'Farina', 'Acqua', 'Lievito', 'Sale', 'Pomodoro', 'Mozzarella', 'Mozzarella'
+        'Farina', 'Acqua', 'Lievito', 'Sale', 'Pomodoro', 'Mozzarella',
     ];
-    return view('home', compact('title', 'ingredients'));
-});
+    return view('ingredients', compact('title', 'ingredients'));
+})->name('ingredients');
